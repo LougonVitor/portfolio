@@ -13,16 +13,13 @@ const Hero = () => {
         height: "100vh",
         display: "flex",
         alignItems: "center",
-        position: "relative",
         overflow: "hidden"
     }))
 
     const StyledImage = styled("img")(() => ({
         width: "80%",
         borderRadius: "50%",
-        border: `2px solid ${theme.palette.secondary.light}`,
-        position: "relative",
-        zIndex: "1"
+        border: `2px solid ${theme.palette.primary.contrastText}`,
     }))
 
     return (
@@ -31,16 +28,19 @@ const Hero = () => {
             <Container maxWidth={"lg"}>
             <Grid2 container spacing={2}>
                 <Grid2 size={{xs: 12, md: 5}}>
-                    <Box position={"absolute"} width={"50%"} top={0} left={0}>
-                        <AnimatedBackground />
+                    <Box position={"relative"}>
+                        <Box position={"absolute"} width={"150%"} top={-100} right={0}>
+                            <AnimatedBackground />
+                        </Box>
+                        <Box position={"relative"} textAlign={"center"}>
+                            <StyledImage src={Image} />
+                        </Box>
                     </Box>
-
-                    <StyledImage src={Image} />
                 </Grid2>
                 <Grid2 size={{xs: 12, md: 7}}>
-                    <Typography color="primary.contrastText" variant="h1" textAlign={"center"}>Vítor Lougon</Typography>
-                    <Typography color="primary.contrastText" variant="h2" textAlign={"center"}>I'm a Software Engineer</Typography>
-                    <Grid2 container display={"flex"} justifyContent={"center"} spacing={3}>
+                    <Typography color="primary.contrastText" variant="h1" textAlign={"center"} pb={2}>Vítor Lougon</Typography>
+                    <Typography color="primary.contrastText" variant="h2" textAlign={"center"} >I'm a Software Engineer</Typography>
+                    <Grid2 container display={"flex"} justifyContent={"center"} spacing={3} pt={3}>
                         <Grid2 size={{xs: 12, md: 4}} display={"flex"} justifyContent={"center"}>
                             <StyledButton>
                                 <CloudDownloadIcon />
